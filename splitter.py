@@ -12,6 +12,7 @@ class YamlSplitter:
         self.cwd = cwd
         self.split = split
 
+
     def load(self, filename):
         """
         Read .yaml file then return data as a list
@@ -24,6 +25,7 @@ class YamlSplitter:
         with open(f"{self.cwd}{filename}", "r", encoding="utf-8") as file:
             print(f"Loaded {self.cwd}{filename}\n")
             return [_.strip() for _ in file.readlines()]
+
 
     def write(self, cursor, data):
         """
@@ -41,6 +43,7 @@ class YamlSplitter:
         except PermissionError:
             print(f"No write permissions in {self.cwd}")
             _exit(0)
+
 
     def parse(self, data):
         """
@@ -67,6 +70,8 @@ class YamlSplitter:
             self.write(cursor, tmp)
 
         print("Done!")
+
+
 def main():
     """
     Main function handler
